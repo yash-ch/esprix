@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'global_state_controller.dart';
 import 'home.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  StorageController().init();
+
   runApp(const MyApp());
 }
 
