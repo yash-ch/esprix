@@ -282,6 +282,7 @@ class _MatrixControlState extends State<MatrixControl> {
   @override
   Widget build(BuildContext context) {
     textList = StorageController().getTextList();
+    GlobalStateController.state.updateTextList(textList);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dot Matrix Controller'),

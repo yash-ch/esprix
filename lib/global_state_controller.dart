@@ -47,6 +47,22 @@ class StorageController{
   }
 
   List<Map<String,dynamic>> getTextList() {
-    return textListBox!.get("textList", defaultValue: <Map<String, dynamic>>[]);
+    //convert the return type to List<Map<String,dynamic>>
+    // map from dynamic to List<Map<String,dynamic>>
+
+    List<Map<String,dynamic>> textList = [];
+
+    if(textListBox!.get("textList") != null) {
+      textListBox!.get("textList").forEach((element) {
+
+        var mapped = Map<String,dynamic>.from(element);
+        print("mapped");
+        print(mapped);
+        textList.add(mapped);
+        // textList.add(Map<String,dynamic>.from(element));
+      });
+    }
+
+    return textList;
   }
 }
