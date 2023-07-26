@@ -56,7 +56,27 @@ class _HomeState extends State<Home> {
           elevation: 0.0,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                //display about dialog
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('About Esprix'),
+                      content: const Text(
+                          'Esprix is a simple app to control the Dot matrix MAX7219 display via ESP8266.'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('Close'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
               icon: const Icon(
                 Icons.info,
                 color: Colors.grey,
